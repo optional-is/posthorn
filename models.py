@@ -6,8 +6,8 @@ class Subscriber(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String())
     name = db.Column(db.String())
-    is_confirmed = db.Column(db.String())
-    date_confirmed = db.Column(db.String())
+    is_confirmed = db.Column(db.Boolean())
+    date_confirmed = db.Column(db.DateTime())
 
     def __init__(self, email):
         self.email = email

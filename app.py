@@ -1,5 +1,7 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from flask_sqlalchemy import SQLAlchemy
+import os
+
 app = Flask(__name__)
 
 class Config(object):
@@ -12,6 +14,8 @@ class Config(object):
 app.config.from_object(Config)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+
+from models import Subscriber
 
 @app.route("/")
 def subscribe():
