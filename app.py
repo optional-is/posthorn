@@ -55,7 +55,7 @@ def unsubscribe(email):
 		except:
 			error = "Could not find that email."
 
-	return render_template("unsubscribe.html", , error=error, results=results)
+	return render_template("unsubscribe.html", error=error, results=results)
 
 @app.route("/confirm/<id>")
 def confirm(id):
