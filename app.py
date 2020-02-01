@@ -30,14 +30,15 @@ def subscribe():
 				person=Subscriber(
 					email=email,
 					name=name,
-					is_subscribed=False
+					is_confirmed=False
 				)
 				db.session.add(person)
 				db.session.commit()
 				results = '{} has been sent a confirmation email.'.format(person.email)
 			else:
 				error = "Email is required."
-		except:
+		except Exception as e:
+			print(e)
 			error = "Error creating subscriber."
 
 	return render_template("subscribe.html", error=error, results=results)
