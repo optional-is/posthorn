@@ -2,6 +2,5 @@
   "name": "Post Horn",
   "description": "A light-weight, self-hosted newsletter tool",
   "repository": "https://github.com/optional-is/posthorn",
-  "logo": "",
   "keywords": ["newletter", "python", "flask"],
 }
