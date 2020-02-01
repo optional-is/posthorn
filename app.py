@@ -43,16 +43,18 @@ def subscribe():
 	return render_template("subscribe.html", error=error, results=results)
 
 @app.route("/unsubscribe",methods=['GET', 'POST'])
-def unsubscribe(email):
+def unsubscribe():
 	error=None
 	results=None
 	if request.method == 'POST':
 		try:
+			email=request.form.get('email',None)
 			person = Subscriber.query.filter_by(email=email).first()
 			results = '{} as been unsubscribed.'.format(person.email)
 			db.session.delete(person)
 			db.session.commit()
-		except:
+		except Exception as e:
+			print(e)
 			error = "Could not find that email."
 
 	return render_template("unsubscribe.html", error=error, results=results)
