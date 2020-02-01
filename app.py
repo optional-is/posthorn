@@ -34,7 +34,7 @@ def subscribe():
 				)
 				db.session.add(person)
 				db.session.commit()
-				results = '{} is now subscribed.'.format(person.email)
+				results = '{} has been sent a confirmation email.'.format(person.email)
 			else:
 				error = "Email is required."
 		except:
@@ -42,7 +42,7 @@ def subscribe():
 
 	return render_template("subscribe.html", error=error, results=results)
 
-@app.route("/unsubscribe/<id>")
+@app.route("/unsubscribe")
 def unsubscribe(email):
 	error=None
 	results=None
