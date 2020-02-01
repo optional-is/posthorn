@@ -2,5 +2,16 @@
   "name": "Post Horn",
   "description": "A light-weight, self-hosted newsletter tool",
   "repository": "https://github.com/optional-is/posthorn",
-  "keywords": ["newletter", "python", "flask"]
+  "keywords": ["newletter", "python", "flask"],
+  "env": {
+    "SECRET_TOKEN": {
+      "description": "A secret key for verifying the integrity of post requests.",
+      "generator": "secret"
+    },
+    "SMTP_SERVER": "",
+    "SMTP_POST": "",
+    "SMTP_USERNAME": "",
+    "SMTP_PASSWORD": "",
+    "DEFAULT_FROM_EMAIL": "",
+  }
 }
