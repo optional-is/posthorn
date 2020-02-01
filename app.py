@@ -29,8 +29,7 @@ def subscribe():
 			if email:
 				person=Subscriber(
 					email=email,
-					name=name,
-					is_confirmed=False
+					name=name
 				)
 				db.session.add(person)
 				db.session.commit()
