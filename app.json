@@ -14,10 +14,5 @@
     "SMTP_USERNAME": "",
     "SMTP_PASSWORD": "",
     "DEFAULT_FROM_EMAIL": "",
-  },
-  "addons": [
-  	{
-      "plan": "heroku-postgresql:hobby-dev"
-    }
-  ]
+  }
 }
