@@ -25,16 +25,16 @@ def subscribe():
 	if request.method == 'POST':
 		try:
 			name=request.form.get('name',None)
-        	email=request.form.get('email',None)
+			email=request.form.get('email',None)
 
-        	if email:
+			if email:
 				person=Subscriber(
-            	    email=email,
-            	    name=name,
-            	    is_subscribed=False
-            	)
+					email=email,
+					name=name,
+					is_subscribed=False
+				)
 				db.session.add(person)
-            	db.session.commit()
+				db.session.commit()
 				c['results'] = '{} is now subscribed.'.format(person.email)
 			else:
 				error = "Email is required."
