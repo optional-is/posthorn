@@ -17,7 +17,7 @@ db = SQLAlchemy(app)
 
 from models import Subscriber
 
-@app.route("/")
+@app.route("/",methods=['GET', 'POST'])
 def subscribe():
 	error = None
 	results = None
@@ -42,7 +42,7 @@ def subscribe():
 
 	return render_template("subscribe.html", error=error, results=results)
 
-@app.route("/unsubscribe")
+@app.route("/unsubscribe",methods=['GET', 'POST'])
 def unsubscribe(email):
 	error=None
 	results=None
