@@ -1,0 +1,18 @@
+<html>
+<head>
+	<title>Unsubscribe</title>
+</head>
+<body>
+	<h1>unsubscribe</h1>
+	{% if results %}
+	<p>{{results}}</p>
+	{% else %}
+	{% if error %}
+	<p>{{error}}</p>
+	{% endif %}
+	<form action="/unsubscribe" method="post">
+		<input type="email" name="email" /><input type="submit" value="unsubscribe" />
+	</form>
+	{% endif %}
+</body>
+</html>
