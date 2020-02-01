@@ -19,7 +19,29 @@ from models import Subscriber
 
 @app.route("/")
 def subscribe():
-    return "Hello World!"
+	c = {}
+	c.update({'error':None})
+	c.update({'results':None})
+	if request.method == 'POST':
+		try:
+			name=request.form.get('name',None)
+        	email=request.form.get('email',None)
+
+        	if email:
+				person=Subscriber(
+            	    email=email,
+            	    name=name,
+            	    is_subscribed=False
+            	)
+				db.session.add(person)
+            	db.session.commit()
+				c['results'] = '{} is now subscribed.'.format(person.email)
+			else:
+				error = "Email is required."
+		except:
+			error = "Error creating subscriber."
+
+	return render_template("subscribe.html", c)
 
 @app.route("/unsubscribe/<id>")
 def unsubscribe(email):

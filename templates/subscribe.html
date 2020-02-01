@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title>Subscribe</title>
+</head>
+<body>
+	<h1>subscribe</h1>
+	{% if results %}
+	<p>{{results}}</p>
+	{% else %}
+	{% if error %}
+	<p>{{error}}</p>
+	{% endif %}
+	<form action="/subscribe" method="post">
+		email: <input type="email" name="email" /><br/>
+		name: <input type="text" name="name" /><br/>
+
+		<input type="submit" value="unsubscribe" />
+	</form>
+	{% endif %}
+</body>
+</html>
